@@ -79,3 +79,5 @@ export const useStore = create<TodoStore>((set) => ({
     }
   },
 }));
+
+console.log("API URL:", URL);
