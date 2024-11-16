@@ -18,7 +18,9 @@ type TodoStore = {
   deleteTodo: (id: number) => void;
 };
 
-const URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+const URL = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
+  : "http://localhost:3000/api";
 
 
 export const useStore = create<TodoStore>((set) => ({
@@ -79,5 +81,3 @@ export const useStore = create<TodoStore>((set) => ({
     }
   },
 }));
-
-console.log("API URL:", URL);
